@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* === UTILITIES === */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .note-body {
+  @apply text-[hsl(210,15%,80%)] text-sm leading-relaxed;
+}
+
+  /* Tombol hover */
+  .btn {
+    @apply text-cyan-300 border border-cyan-400/20 backdrop-blur-md;
+    background-color: rgba(0, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .btn:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .btn-cancel:hover {
+    color: hsl(195, 100%, 65%) !important; /* Sesuaikan dengan var --primary atau warna cyan */
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* Efek kaca transparan (glassmorphism) */
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Animasi fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animasi slide-up */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Kelas untuk animasi fade-in */
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* Kelas untuk animasi slide-up */
+.animate-slideUp {
+  animation: slideUp 1s ease-out forwards;
+}
+
+  /* Background  */
+  .bg {
+    background: linear-gradient(135deg, rgba(100, 100, 255, 0.1), rgba(255, 100, 255, 0.1));
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+  }
+
+  @keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Animasi subtle saat hover kartu */
+  .card-hover-effect:hover {
+    transform: scale(1.01);
+    box-shadow: var(--shadow-xl);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+}
+
+
+/* === BASE === */
+@layer base {
+  :root {
+    --background: hsl(225, 15%, 10%);
+    --foreground: 210 22% 95%;
+    --primary: 195 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 280 100% 85%;
+    --secondary-foreground: 210 20% 25%;
+    --muted: 210 10% 40%;
+    --muted-foreground: 210 15% 75%; /* lebih terang dan tetap cool tone */
+    --accent: 300 100% 75%;
+    --accent-foreground: 300 100% 10%;
+    --destructive: 350 80% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --card: 240 30% 15%;
+    --card-foreground: 210 25% 95%;
+    --border: 240 30% 50%;
+    --input: 210 10% 25%;
+    --ring: 210 30% 60%;
+    --sidebar: 240 20% 10%;
+    --sidebar-foreground: 210 20% 90%;
+    --radius: 0.75rem;
+
+    --font-sans: 'Roboto', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+
+    --shadow-lg: 0px 8px 30px rgba(0, 255, 255, 0.08);
+    --shadow-xl: 0px 15px 50px rgba(0, 255, 255, 0.2);
+    --tracking-normal: 0.04em;
+  }
+
+  .dark {
+    --background: hsl(225, 15%, 7%);
+    --foreground: 210 20% 90%;
+    --primary: 195 100% 65%;
+    --secondary: 280 100% 70%;
+    --muted-foreground: 210 15% 75%;
+    --card: 240 30% 10%;
+    --card-foreground: 210 25% 95%;
+    --sidebar: 240 25% 8%;
+    --sidebar-foreground: 210 30% 90%;
+  }
+
+  body {
+  @apply bg-gradient-to-tr from-[#0f2027] via-[#203a43] to-[#2c5364] text-white font-sans min-h-screen;
+  letter-spacing: var(--tracking-normal);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+  * {
+    @apply border-border;
+  }
+
+  a {
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: hsl(var(--primary));
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    color: hsl(var(--primary));
+  }
+
+  code {
+    @apply font-mono text-accent;
+  }
+}
