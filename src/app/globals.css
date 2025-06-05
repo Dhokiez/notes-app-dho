@@ -108,7 +108,7 @@
     --secondary: 280 100% 85%;
     --secondary-foreground: 210 20% 25%;
     --muted: 210 10% 40%;
-    --muted-foreground: 210 15% 75%; /* lebih terang dan tetap cool tone */
+    --muted-foreground: 210 15% 75%; 
     --accent: 300 100% 75%;
     --accent-foreground: 300 100% 10%;
     --destructive: 350 80% 55%;
