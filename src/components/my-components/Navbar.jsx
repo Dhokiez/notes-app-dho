@@ -74,7 +74,7 @@ const controlNavbar = () => {
         showNavbar ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <nav className="bg-gradient-to-br from-[#0c0c1c] via-[#111122] to-[#1a1a2e] bg-opacity-90 backdrop-blur-md shadow-lg rounded-b-xl px-6 py-4 md:py-5">
+      <nav className="bg-gradient-to-r from-[#0f172a] via-[#1e293b] to-[#3b0764] bg-opacity-90 backdrop-blur-md shadow-lg rounded-b-xl px-6 py-4 md:py-5">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="text-cyan-400 font-extrabold text-2xl md:text-3xl select-none cursor-default tracking-wider">
             Notes App
