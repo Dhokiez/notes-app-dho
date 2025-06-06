@@ -15,7 +15,7 @@
 
   /* Tombol hover */
   .btn {
-    @apply text-cyan-300 border border-cyan-400/20 backdrop-blur-md;
+    @apply text-cyan-300 border border-cyan-400/20;
     background-color: rgba(0, 255, 255, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: var(--shadow-lg);
@@ -32,15 +32,34 @@
     box-shadow: none !important;
   }
 
-  /* Efek kaca transparan (glassmorphism) */
-  .glassmorphism {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-radius: 1rem;
-    box-shadow: var(--shadow-lg);
-  }
+/* Efek kaca transparan (glassmorphism) */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* Hapus atau sesuaikan backdrop-filter: blur(14px); jika tidak ingin blur */
+  backdrop-filter: none;  /* Ganti menjadi none untuk menghilangkan blur */
+  -webkit-backdrop-filter: none !important;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Pastikan filter dan backdrop-filter tidak diterapkan pada elemen apapun */
+*,
+*::before,
+*::after {
+  filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Hapus filter blur di semua elemen yang terpengaruh */
+a:hover,
+button:hover,
+div:hover,
+.card-hover-effect:hover {
+  filter: none !important;
+  backdrop-filter: none !important;
+}
+
 
   /* Animasi fade-in */
 @keyframes fadeIn {
@@ -159,6 +178,7 @@
 
   a:hover {
     color: hsl(var(--primary));
+    filter: none !important;
   }
 
   h1, h2, h3, h4, h5, h6 {

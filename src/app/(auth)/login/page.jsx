@@ -5,12 +5,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { useRouter } from "next/navigation"; // Untuk melakukan navigasi ke halaman register
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const router = useRouter(); // Hook untuk navigasi
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -34,7 +36,7 @@ export default function LoginPage() {
       const data = await res.json();
       localStorage.setItem("token", data.token);
 
-      window.location.href = "/notes";
+      window.location.href = "/notes"; // Redirect ke halaman notes
     } catch (err) {
       setError(err.message);
     } finally {
@@ -76,6 +78,16 @@ export default function LoginPage() {
               {loading ? "Logging in..." : "Login"}
             </Button>
           </form>
+          {/* Peringatan dan link ke halaman Register tanpa efek blur */}
+          <p className="mt-4 text-center text-sm">
+            Belum punya akun?{" "}
+            <a
+              href="/register"
+              className="text-purple-600 hover:text-purple-400 transition-colors"
+            >
+              Daftar di sini
+            </a>
+          </p>
         </CardContent>
       </Card>
     </div>
