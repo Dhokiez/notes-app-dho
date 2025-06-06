@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { User, LogIn } from 'lucide-react'; // Import icon yang dibutuhkan
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -127,18 +128,20 @@ const controlNavbar = () => {
                 Logout
               </Button>
             ) : (
-              <div className="flex space-x-3">
-                <Link href="/login">
-                  <Button size="sm" className="text-white bg-cyan-600 hover:bg-cyan-700 transition">
-                    Login
-                  </Button>
-                </Link>
-                <Link href="/register">
-                  <Button size="sm" className="text-cyan-900 bg-cyan-100 hover:bg-cyan-200 transition">
-                    Register
-                  </Button>
-                </Link>
-              </div>
+           <div className="flex space-x-3">
+  <Link href="/login">
+    <Button size="sm" className="text-white bg-cyan-600 hover:bg-cyan-700 transition">
+      <LogIn className="mr-2" size={16} /> {/* Ikon Login */}
+      Login
+    </Button>
+  </Link>
+  <Link href="/register">
+    <Button size="sm" className="text-cyan-900 bg-cyan-100 hover:bg-cyan-200 transition">
+      <User className="mr-2" size={16} /> {/* Ikon User */}
+      Register
+    </Button>
+  </Link>
+</div>
             )}
           </div>
         </div>
