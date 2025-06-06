@@ -129,19 +129,21 @@ const controlNavbar = () => {
               </Button>
             ) : (
            <div className="flex space-x-3">
-  <Link href="/login">
+    <Link href="/login">
     <Button size="sm" className="text-white bg-cyan-600 hover:bg-cyan-700 transition">
       <LogIn className="mr-2" size={16} /> {/* Ikon Login */}
       Login
     </Button>
-  </Link>
-  <Link href="/register">
-    <Button size="sm" className="text-cyan-900 bg-cyan-100 hover:bg-cyan-200 transition">
-      <User className="mr-2" size={16} /> {/* Ikon User */}
-      Register
-    </Button>
-  </Link>
-</div>
+    </Link>
+    <Link href="/register">
+      <Button
+      size="sm"
+      className="flex items-center justify-center gap-2 px-4 py-2 text-white bg-emerald-800 hover:bg-emerald-700 rounded-xl min-w-[120px] leading-[1.25rem]">
+      <User className="w-4 h-4" />
+        Register
+      </Button>
+      </Link>
+        </div>
             )}
           </div>
         </div>
