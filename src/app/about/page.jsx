@@ -106,7 +106,7 @@ const AboutPage = () => {
 >
   <div className="grid md:grid-cols-2 gap-10 items-center">
     <img
-      src="/images/himatifta.png"
+      src="/images/himatifta.jpg"
       alt="HIMATIFTA"
       className="rounded-lg w-full h-auto object-cover shadow-lg border-none"
     />
